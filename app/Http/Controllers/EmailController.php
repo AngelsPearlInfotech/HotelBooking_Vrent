@@ -12,6 +12,7 @@ use App\Http\Helpers\Common;
 use App\Http\Requests;
 use PDF;
 
+
 use App\Models\{Accounts,
     Admin,
     Bookings,

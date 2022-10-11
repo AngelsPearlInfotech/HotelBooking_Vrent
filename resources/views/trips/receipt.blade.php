@@ -1,14 +1,13 @@
 @extends('template')
 
 @section('main')
-
 <div class="container margin-top-85 p-0 mb-5 min-height">
 @if(Session::has('message'))
               <div class="alert alert-success alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <span>{{Session::get('message')}}</span>
               </div>
-              @endif 
+        @endif 
   <div class="panel-body text-success">
    <h6 class="text-16">{{trans('messages.trips_receipt.receipt')}} # {{ $booking->id }}</h6>
  </div>

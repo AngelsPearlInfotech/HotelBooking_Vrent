@@ -142,7 +142,7 @@ class SetDataServiceProvider extends ServiceProvider
             \Config::set(['services.google' => [
                     'client_id' => $google['client_id'],
                     'client_secret' => $google['client_secret'],
-                    'redirect' => url('http://localhost/vrent/googleAuthenticate'),
+                    'redirect' => url('http://localhost/HotelBooking_Vrent/googleAuthenticate'),
                                                              //http://localhost/vRent3.3/googleAuthenticate
                                                               //https://ecohodo.com
                                                               //http://127.0.0.1:8000/vRent3.3/googleAuthenticate

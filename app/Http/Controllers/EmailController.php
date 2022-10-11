@@ -950,15 +950,24 @@ class EmailController extends Controller
        
        $booking         = Bookings::find($booking_id);
        $user            = $booking->users;
+
+
        if (env('APP_MODE', '') != 'test') {
-     
         if ($emailConfig['driver']=='smtp' && $emailConfig['email_status']==1) {
-            $pdf = PDF::loadView('emails.receipt', $data);
-        
+
+            // $data['booking']          = Bookings::where('code',$code)->first();
+            // $data['date_price']       = json_decode($data['booking']->date_with_price);
+            // $data['title']            = 'Payment receipt for';
+            // $data['url']              = url('/').'/';
+            // $data['additional_title'] = $code;
+          
+            $pdf = PDF::loadView('emails.reademail', $data);
+          
+
             Mail::send('emails.receipt', $data, function ($message) use ($user,$pdf) {
                 $message->to($user->email, $user->first_name)
-                ->subject("Payment Receipt")
-                ->attachData($pdf->output(), "text.pdf");
+                ->subject("Payment Receipt")    
+                ->attachData($pdf->output(), "receipt.pdf");
             });
 
          } 
@@ -967,6 +976,8 @@ class EmailController extends Controller
         }
     }
        return redirect()->back();
+
+    
    }
 
     

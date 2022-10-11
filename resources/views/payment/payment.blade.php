@@ -195,7 +195,7 @@
 					<button id="payment-form-submit" type="submit" class="btn vbtn-outline-success text-16 font-weight-700 pl-5 pr-5 pt-3 pb-3">
 							<i class="spinner fa fa-spinner fa-spin d-none"></i>
 							{{ ($booking_type == 'instant') ? trans('messages.listing_book.book_now') : trans('messages.property.continue') }}
-						</button>
+					</button>
 				</div>
 
 				
@@ -375,7 +375,6 @@ $('#payment-form-submit').on('click',function(e){
 					$(".preload").fadeIn(function() { 
 					});
 					window.location.href="{{ url('booking/sendreceipt')}}?code="+res.code;
-					
 				}
 			});
 		},
